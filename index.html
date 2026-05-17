@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nexora automobile</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body{
+      background-color: #F5F1EB;
+      color: #2B2B2B;
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+
+    header {
+      position: absolute;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 30px 7%;
+      z-index: 100;
+    }
+
+    .logo {
+      font-size: 34px;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      color: #FFFFFF;
+      letter-spacing: 1px;
+      margin-left: 5px;
+    }
+
+    nav a{
+      text-decoration: none;
+      color: #FFFFFF;
+      margin-left: 35px;
+      font-size: 15px;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      opacity: 0.7;
+    }
+
+    .hero{
+      min-height:100vh;
+      background:
+       linear-gradient(rgba(20,20,20,0.45), rgba(20,20,20,0.45)),
+       url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
+       display:flex;
+       align-items:center;
+       position:relative;
+       padding:0 9%;
+       justify-content: flex-start;
+    }
+
+
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0,0,0,0.45);
+    }
+    .hero-content {
+      position: relative;
+      color: #FFFFFF;
+      max-width: 700px;
+      padding-top:120px;
+      margin-left: 500px;
+
+    }
+
+    .hero-content h1 {
+      font-size: 72px;
+      line-height: 1;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .hero-content p {
+      font-size: 18px;
+      margin-bottom: 35px;
+      line-height: 1.9;
+      max-width: 550px;
+      
+    }
+
+    .btn{
+      display: inline-block;
+      padding: 16px 32px;
+      background-color:#B38B59;
+      color: white;
+      text-decoration: none;
+      border-radius: 50px;
+      transition: 0.3s;
+      font-weight: 500;
+    }
+
+    .btn:hover {
+      background-color: #9A7447;
+      transform: translateY(-4px);
+    }
+
+    .floating-card{
+      position: absolute;
+      bottom: -70px ;
+      left: 8%; 
+      background-color: #FFFFFF;
+      padding: 35px;
+      width: 330px;
+      border-radius:30px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+    }
+
+    .floating-card h3 {
+      font-size: 34px;
+      margin-bottom: 15px;
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    .floating-card p{
+      font-size:16px;
+      color:#6B7280;
+      line-height:1.8;
+      margin-bottom:20px;
+      
+    }
+
+    .section{
+      padding:140px 7%;
+    }
+
+    .intro-grid{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .intro-grid img{
+      width: 100%;
+      border-radius: 35px;
+      height: 650px;
+      object-fit:cover;
+    }
+
+    .intro-text h2{
+      font-size: 68px;
+      line-height: 1;
+      margin-bottom: 25px;
+      font-family: 'Cormorant Garamond', serif;
+      color: #2B2118
+    }
+
+    .intro-text p{
+      color: #6B7280;
+      line-height: 2;
+      margin-bottom: 25px;
+    }
+
+    .special-section{
+      background: #3A2F28;
+      color: #FFFFFF;
+      border-radius: 40px;
+      padding: 90px 7%;
+      margin:0 7%;
+    }
+
+    .special-header{
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      margin-bottom:60px
+    }
+
+    .special-header h2{
+      font-size: 72px;
+      line-height: 0.95;
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    .feature-layout{
+  display:grid;
+  grid-template-columns:1.2fr 0.8fr;
+  gap:35px;
+}
+
+.main-feature img{
+  width:100%;
+  height:520px;
+  object-fit:cover;
+  border-radius:30px;
+}
+
+.feature-list{
+  display:flex;
+  flex-direction:column;
+  gap:25px;
+}
+
+.feature-card{
+  background:#FFFFFF;
+  padding:22px;
+  border-radius:25px;
+  display:flex;
+  gap:18px;
+  align-items:center;
+  box-shadow:0 10px 25px rgba(0,0,0,0.06);
+}
+
+.feature-card img{
+  width:110px;
+  height:110px;
+  border-radius:20px;
+  object-fit:cover;
+}
+
+.feature-card h3{
+  font-size:28px;
+  margin-bottom:8px;
+  font-family:'Cormorant Garamond',serif;
+  color:#2B2118;
+}
+
+.feature-card p{
+  color:#6B7280;
+  font-size:14px;
+  line-height:1.7;
+  margin-bottom:10px;
+}
+
+.feature-tag{
+  color:#B38B59;
+  font-weight:600;
+}
+
+.price{
+  color: #D4A373;
+  font-weight: 600px;
+}
+
+footer{
+   padding:60px 7%;
+  text-align:center;
+  color:#777;
+  font-size:15px;
+}
+
+.hidden{
+  opacity:0;
+  transform:translateY(40px);
+  transition:all 1s ease;
+}
+
+.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+@media(max-width:950px){
+
+      nav{
+        display:none;
+      }
+
+      .hero-content h1,
+      .intro-text h2,
+      .special-header h2,
+      .experience-box h2{
+        font-size:52px;
+      }
+
+      .intro-grid,
+      .dish-layout,
+      .experience{
+        grid-template-columns:1fr;
+      }
+
+      .floating-card{
+        position:relative;
+        right:0;
+        bottom:0;
+        width:100%;
+        margin-top:40px;
+      }
+
+      .hero{
+        padding-top:120px;
+      }
+
+    }
+
+  </style>
+</head>
+<body>
+  
+  <header>
+    <div class="logo">Nexora automobile</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="Cars.html">Cars</a>
+      <a href="SuperCars.html">Super Cars</a>
+      <a href="LuxuryCars.html">Luxury Cars</a>
+      <a href="Contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <h1>Experience the Future of Driving</h1>
+      <p>Discover the ultimate blend of performance, luxury, and innovation with Nexora's cutting-edge automobiles. Elevate your driving experience to new heights.</p>
+      <a href="Cars.html" class="btn">Explore Our Cars</a>
+    </div>
+
+    
+    <div class="floating-card">
+      <h3>Introducing the Nexora Automobile</h3>
+      <p>Nexora Automobile combines luxury craftsmanship, modern engineering, and performance innovation to redefine premium mobility.</p>
+      
+      <a href ="#" class="btn">Learn More</a>
+    </div>
+  </section>
+
+  <section class="section hidden">
+
+  <div class="intro-grid">
+
+    <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1200&auto=format&fit=crop" alt="Luxury Car">
+
+    <div class="intro-text">
+
+      <h2>Crafted For Performance And Elegance</h2>
+
+      <p>
+        Nexora Automobile creates premium driving experiences through
+        modern engineering, refined interiors, and timeless automotive design.
+      </p>
+
+      <p>
+        Every vehicle is built to deliver exceptional comfort,
+        performance, and innovation for modern luxury lifestyles.
+      </p>
+
+      <a href="#" class="btn">View Collection</a>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="special-section hidden">
+
+  <div class="special-header">
+
+    <h2>Featured Luxury Collection</h2>
+
+    <p>
+      Explore our most premium automobiles designed for modern performance.
+    </p>
+
+  </div>
+
+  <div class="feature-layout">
+
+    <div class="main-feature">
+      <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1200&auto=format&fit=crop" alt="Sports Car">
+    </div>
+
+    <div class="feature-list">
+
+      <div class="feature-card">
+
+        <img src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?q=80&w=1200&auto=format&fit=crop" alt="Luxury Sedan">
+
+        <div>
+          <h3>Bugatti Chiron</h3>
+
+          <p>
+            Supercar with advanced comfort and intelligent driving technology.
+          </p>
+
+          <div class="price">$120,000</div>
+        </div>
+
+      </div>
+
+      <div class="feature-card">
+
+        <img src="https://images.unsplash.com/photo-1553440569-bcc63803a83d?q=80&w=1200&auto=format&fit=crop" alt="SUV">
+
+        <div>
+          <h3>Mercedes-AMG GT</h3>
+
+          <p>
+            Luxury Coupe designed for performance, safety, and elegant travel experiences.
+          </p>
+
+          <div class="price">$145,000</div>
+        </div>
+
+      </div>
+
+      <div class="feature-card">
+
+        <img src="https://images.unsplash.com/photo-1494905998402-395d579af36f?q=80&w=1200&auto=format&fit=crop" alt="Electric Car">
+
+        <div>
+          <h3>Shelby GT500</h3>
+
+          <p>
+            Old hyper performance vehicle engineered for the ultimate driving experience.
+          </p>
+
+          <div class="price">$165,000</div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<footer>
+  © 2026 Nexora Automobile. All Rights Reserved.
+  <br>Manthan's Portfolio Project, All Images are from Unsplash
+</footer>
+<script>
+
+  // Smooth navbar animation on scroll
+
+  window.addEventListener("scroll", function(){
+
+    const header = document.querySelector("header");
+
+    if(window.scrollY > 50){
+      header.style.background = "rgba(28,28,28,0.88)";
+      header.style.backdropFilter = "blur(10px)";
+      header.style.transition = "0.3s";
+    }
+
+    else{
+      header.style.background = "transparent";
+    }
+
+  });
+
+
+
+  // Fade in animation on scroll
+
+  const observer = new IntersectionObserver((entries) => {
+
+    entries.forEach((entry) => {
+
+      if(entry.isIntersecting){
+        entry.target.classList.add("show");
+      }
+
+    });
+
+  });
+
+
+  const hiddenElements = document.querySelectorAll(".hidden");
+
+  hiddenElements.forEach((el) => observer.observe(el));
+
+
+
+  // Button hover glow effect
+
+  const buttons = document.querySelectorAll(".btn");
+
+  buttons.forEach((btn) => {
+
+    btn.addEventListener("mouseenter", () => {
+      btn.style.boxShadow = "0 10px 25px rgba(179,139,89,0.35)";
+    });
+
+    btn.addEventListener("mouseleave", () => {
+      btn.style.boxShadow = "none";
+    });
+
+  });
+
+</script>
+</body>
+</html>
+
+    
